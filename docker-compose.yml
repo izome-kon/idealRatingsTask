@@ -1,0 +1,62 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: idealratings_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - app
+      - technicaltaskidealratingsdotnet
+
+  app:
+    build:
+      context: ./backend_nodejs
+    container_name: backend_nodejs
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend_nodejs:/app
+    depends_on:
+      - mongo
+    command: >
+      sh -c "chmod +x ./init.sh && ./init.sh"
+    restart: always
+
+  mongo:
+    image: mongo
+    container_name: mongo_ideal_ratings
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql_ideal_ratings
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Passw0rd"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  technicaltaskidealratingsdotnet:
+    build:
+      context: .
+      dockerfile: BackendDotNet/TechnicalTaskIdealRatingsDotNet/Dockerfile
+    container_name: ideal_ratings_dotnet
+    ports:
+      - "5009:80"
+    depends_on:
+      - mssql
+
+volumes:
+  mongo-data:
+  mssql_data:
