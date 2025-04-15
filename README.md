@@ -1,6 +1,27 @@
 
 # 🌟 Ideal Ratings Task
 
+
+## 📖 Table of Contents
+
+- [📝 Task Overview](#-task-overview)
+- [✅ Tasks Completed](#-tasks-completed)
+- [🧱 Project Structure](#-project-structure)
+- [🛠️ Technologies Used](#️-technologies-used)
+- [🚀 How to Run this application](#-how-to-run-this-application)
+    - [Clone the Repository](#clone-the-repository)
+    - [Setup the Environment Variables](#setup-the-environment-variables)
+        - [Frontend `.env`](#frontend-env)
+        - [Backend Node.js `.env`](#backend-nodejs-env)
+- [🚢 Running the Project with Docker Compose](#-running-the-project-with-docker-compose)
+- [🗂️ Database Seeding](#️-database-seeding)
+- [🔧 Troubleshooting](#-troubleshooting)
+    - [Error when running migration](#error-when-running-migration)
+    - [Permissions Issue with Docker](#permissions-issue-with-docker)
+- [📬 Contact](#-contact)
+
+
+
 ## 📝 Task Overview
 
 This application is designed to list person details, including their names, phone numbers, and addresses. The data is aggregated from two sources: a CSV file and a database (MongoDB or SQL Server). Users can filter the displayed list of person details by the person's name and country.
