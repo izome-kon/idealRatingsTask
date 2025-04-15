@@ -16,9 +16,6 @@ RUN npm install -g ts-node-dev
 
 # Bundle app source
 COPY . .
-# Copy the init script
-COPY init.sh ./init.sh
-RUN chmod +x ./init.sh
 
 # Expose the port the app runs on
 EXPOSE 3000

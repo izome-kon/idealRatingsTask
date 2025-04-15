@@ -130,7 +130,7 @@ docker compose build
 3. **Start the services**:
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 
 4. **Access the application**:
@@ -146,6 +146,109 @@ This will start all the services:
 When the application starts for the first time, the database will be seeded with sample data.
 
 ---
+
+## 🔌 API Route (Node.js)
+
+The Node.js backend exposes a single RESTful API endpoint to fetch and filter person details aggregated from both a **CSV file** and a **MongoDB database**.
+
+### 📍 Endpoint
+
+```
+GET /api/person
+```
+
+### 🔄 Query Parameters (optional):
+
+| Parameter | Type   | Description                                     |
+|-----------|--------|-------------------------------------------------|
+| `name`    | string | Filter results by person’s name                 |
+| `country` | string | Filter results by country                       |
+
+### 🧾 Sample Request
+
+```http
+GET http://localhost:3000/api/person?name=Mohamed&country=egypt
+```
+
+### ✅ Sample Response
+
+```json
+[
+    {
+        "first name": "Mohamed",
+        "last name": "Khaled",
+        "telephone code": "20",
+        "telephone number": "444444030",
+        "address": "11 Road Street",
+        "country": "Egypt"
+    }
+]
+```
+
+### 🔧 How It Works
+
+- The API aggregates person data from:
+  - A **CSV file** located in the project directory (e.g., `data.csv`)
+  - A **MongoDB collection** (`persons`)
+- The response is **combined** from both sources and **formatted uniformly**.
+- If no filters are passed, all records are returned.
+
+## 📌 API Route (.NET)
+
+This backend is implemented using ASP.NET Core 7 and exposes a single RESTful API for retrieving person details.
+
+---
+
+### 📍 Endpoint
+
+### `GET /api/person`
+
+Fetch a list of all persons with optional filters.
+
+### 🔄 Query Parameters (optional):
+
+| Parameter | Type   | Description                          |
+|-----------|--------|--------------------------------------|
+| `name`    | string | (Optional) Filter by person’s name   |
+| `country` | string | (Optional) Filter by country         |
+
+### 🧾 Sample Request
+
+```
+GET http://localhost:5009/api/person?name=Ahmed&country=Egypt
+```
+
+### ✅ Sample Response
+
+```json
+[
+    {
+        "first name": "Ahmed",
+        "last name": "Amr",
+        "telephone code": "20",
+        "telephone number": "122002020",
+        "address": "10 Road Street",
+        "country": "Egypt"
+    },
+    {
+        "first name": "Ahmed",
+        "last name": "Mohammed",
+        "telephone code": "20",
+        "telephone number": "010334445",
+        "address": "10 Road Street",
+        "country": "Egypt"
+    }
+]
+```
+
+
+
+## 🧠 Notes
+
+- The API aggregates data from a CSV file and SQL Server database.
+- You can use this endpoint in the frontend by switching `VITE_BACKEND_ENV=dotnet` in your `.env` file.
+
+
 
 ## 🔧 Troubleshooting
 

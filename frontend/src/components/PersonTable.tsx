@@ -19,7 +19,8 @@ export const PersonTable = ({ persons }: Props) => {
                 <tr className="bg-gray-100">
                     <th className="border p-2">First Name</th>
                     <th className="border p-2">Last Name</th>
-                    <th className="border p-2">Phone</th>
+                    <th className="border p-2">Telephone Code</th>
+                    <th className="border p-2">Telephone Number</th>
                     <th className="border p-2">Country</th>
                     <th className="border p-2">Address</th>
                 </tr>
@@ -29,7 +30,8 @@ export const PersonTable = ({ persons }: Props) => {
                     <tr key={idx}>
                         <td className="border p-2">{p["first name"]}</td>
                         <td className="border p-2">{p["last name"]}</td>
-                        <td className="border p-2">{p["telephone code"] + p["telephone number"]}</td>
+                        <td className="border p-2">{p["telephone code"]}</td>
+                        <td className="border p-2">{p["telephone number"]}</td>
                         <td className="border p-2">{p["country"]}</td>
                         <td className="border p-2">{p.address}</td>
                     </tr>
