@@ -21,6 +21,7 @@ services:
       - "3000:3000"
     volumes:
       - ./backend_nodejs:/app
+      - /app/node_modules
     depends_on:
       - mongo
     command: >
