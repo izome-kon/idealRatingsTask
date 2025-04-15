@@ -98,26 +98,27 @@ MONGO_URI="mongodb://mongo:27017/IdealRatings"
 
 ### 🚢 Running the Project with Docker Compose
 
-1. **Build the containers**:
+1. **Navigate to the project root directory**:
+
+2. **Build the containers**:
 
 ```bash
 docker compose build
 ```
 
-2. **Start the services**:
+3. **Start the services**:
 
 ```bash
 docker compose up
 ```
 
+4. **Access the application**:
 This will start all the services:
-- Frontend (React app) on `localhost:5173`
-- Backend 1 (ASP.NET Core API) on `localhost:5009`
-- Backend 2 (Node.js API) on `localhost:3000`
-- MongoDB on `localhost:27017`
-- SQL Server on `localhost:1433`
-
----
+- Frontend (React app): [http://localhost:5173](http://localhost:5173)
+- Backend 1 (ASP.NET Core API): [http://localhost:5009](http://localhost:5009)
+- Backend 2 (Node.js API): [http://localhost:3000](http://localhost:3000)
+- MongoDB: `localhost:27017`
+- SQL Server: `localhost:1433`
 
 ## 🗂️ Database Seeding
 
