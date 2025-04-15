@@ -8,15 +8,27 @@
 - [✅ Tasks Completed](#-tasks-completed)
 - [🧱 Project Structure](#-project-structure)
 - [🛠️ Technologies Used](#️-technologies-used)
-- [🚀 How to Run this application](#-how-to-run-this-application)
+- [🚀 How to Run this Application](#-how-to-run-this-application)
     - [Clone the Repository](#clone-the-repository)
     - [Setup the Environment Variables](#setup-the-environment-variables)
         - [Frontend `.env`](#frontend-env)
         - [Backend Node.js `.env`](#backend-nodejs-env)
 - [🚢 Running the Project with Docker Compose](#-running-the-project-with-docker-compose)
 - [🗂️ Database Seeding](#️-database-seeding)
+- [🔌 API Route (Node.js)](#-api-route-nodejs)
+    - [📍 Endpoint](#-endpoint)
+    - [🔄 Query Parameters (Optional)](#-query-parameters-optional)
+    - [🧾 Sample Request](#-sample-request)
+    - [✅ Sample Response](#-sample-response)
+    - [🔧 How It Works](#-how-it-works)
+- [📌 API Route (.NET)](#-api-route-net)
+    - [📍 Endpoint](#-endpoint-1)
+    - [🔄 Query Parameters (Optional)](#-query-parameters-optional-1)
+    - [🧾 Sample Request](#-sample-request-1)
+    - [✅ Sample Response](#-sample-response-1)
+    - [🔧 How It Works](#-how-it-works-1)
 - [🔧 Troubleshooting](#-troubleshooting)
-    - [Error when running migration](#error-when-running-migration)
+    - [Error When Running Migration](#error-when-running-migration)
     - [Permissions Issue with Docker](#permissions-issue-with-docker)
 - [📬 Contact](#-contact)
 
@@ -188,7 +200,7 @@ GET http://localhost:3000/api/person?name=Mohamed&country=egypt
 ### 🔧 How It Works
 
 - The API aggregates person data from:
-  - A **CSV file** located in the project directory (e.g., `data.csv`)
+  - A **CSV file** located in the project directory (`backend_nodejs/src/data/person.csv`)
   - A **MongoDB collection** (`persons`)
 - The response is **combined** from both sources and **formatted uniformly**.
 - If no filters are passed, all records are returned.
@@ -240,12 +252,18 @@ GET http://localhost:5009/api/person?name=Ahmed&country=Egypt
     }
 ]
 ```
+---
+### 🔧 How It Works
+
+- The API aggregates person data from:
+  - A **CSV file** located in the project directory (`BackendDotNet/TechnicalTaskIdealRatingsDotNet/Data/person.csv`)
+  - A **Sql Server get all data from** (`Person_Details`) table.
+- The response is **combined** from both sources and **formatted uniformly**.
+- If no filters are passed, all records are returned.
 
 
+## 🧠 Note
 
-## 🧠 Notes
-
-- The API aggregates data from a CSV file and SQL Server database.
 - You can use this endpoint in the frontend by switching `VITE_BACKEND_ENV=dotnet` in your `.env` file.
 
 
