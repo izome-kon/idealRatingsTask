@@ -12,6 +12,7 @@ RUN npm install
 # install typescript
 RUN npm install -g typescript
 RUN npm install -g ts-node
+RUN npm install -g ts-node-dev
 
 # Bundle app source
 COPY . .
