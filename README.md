@@ -50,8 +50,8 @@ To get started with the project, follow the steps below:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/izome/idealratings.git
-cd idealratings
+git clone https://github.com/izome-kon/idealRatingsTask.git
+cd idealRatingsTask
 ```
 
 ### Setup the Environment Variables
