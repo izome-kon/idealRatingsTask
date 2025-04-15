@@ -8,6 +8,7 @@
 - [✅ Tasks Completed](#-tasks-completed)
 - [🧱 Project Structure](#-project-structure)
 - [🛠️ Technologies Used](#️-technologies-used)
+- [🎨 Design Patterns Used](#-design-patterns-used)
 - [🚀 How to Run this Application](#-how-to-run-this-application)
     - [Clone the Repository](#clone-the-repository)
     - [Setup the Environment Variables](#setup-the-environment-variables)
@@ -27,6 +28,10 @@
     - [🧾 Sample Request](#-sample-request-1)
     - [✅ Sample Response](#-sample-response-1)
     - [🔧 How It Works](#-how-it-works-1)
+- [🧪 Unit Testing Guide for Node.js (Jest)](#-unit-testing-guide-for-nodejs-jest)
+    - [📦 Location of Tests](#-location-of-tests)
+    - [▶️ Running the Tests](#️-running-the-tests)
+    - [📁 Sample Test Command Output](#-sample-test-command-output)
 - [🔧 Troubleshooting](#-troubleshooting)
     - [Error When Running Migration](#error-when-running-migration)
     - [Permissions Issue with Docker](#permissions-issue-with-docker)
@@ -74,7 +79,19 @@ All the requirements for the task have been successfully implemented:
 - **Containerization**: Docker, Docker Compose
 - **Others**: C#, JavaScript, HTML, CSS
 
----
+
+## 🎨 Design Patterns Used
+
+
+1. **Repository Pattern**:
+    - Used in both Node.js and .NET backends to abstract data access logic and provide a clean separation between the business logic and data sources (CSV, MongoDB, SQL Server).
+
+2. **Dependency Injection**:
+    - Implemented in both Node.js and .NET backends to manage dependencies and improve testability by injecting required services into controllers and services.
+
+3. **Mapper Pattern**:
+    - Applied to transform raw data from different sources (CSV, MongoDB, SQL Server) into a unified format for the API response.
+
 
 ## 🚀 How to Run this application
 
@@ -267,6 +284,59 @@ GET http://localhost:5009/api/person?name=Ahmed&country=Egypt
 - You can use this endpoint in the frontend by switching `VITE_BACKEND_ENV=dotnet` in your `.env` file.
 
 
+
+## 🧪 Unit Testing Guide for Node.js (Jest)
+
+
+### 📦 Location of Tests
+
+Unit tests can be found in:
+
+```
+backend_nodejs/tests/
+```
+
+---
+
+### ▶️ Running the Tests
+
+First, make sure dependencies are installed:
+
+```bash
+npm install
+```
+
+Then, run the test suite with:
+
+```bash
+npm test
+```
+
+---
+
+### ⚙️ Tech Stack
+
+- **Jest**: Testing framework
+- **ts-jest**: Jest transformer for TypeScript
+
+---
+
+### 📁 Sample Test Command Output
+
+```bash
+ PASS  tests/mappers/mongoPerson.mapper.test.ts
+ PASS  tests/services/person.service.test.ts
+ PASS  tests/mappers/csvPerson.mapper.test.ts
+ PASS  tests/utils/buildPersonFilter.test.ts
+ PASS  tests/repositories/CsvPersonRepository.test.ts
+ PASS  tests/repositories/MongoPersonRepository.test.ts
+
+Test Suites: 6 passed, 6 total
+Tests:       21 passed, 21 total
+Snapshots:   0 total
+Time:        2.975 s, estimated 3 s
+Ran all test suites.
+```
 
 ## 🔧 Troubleshooting
 
