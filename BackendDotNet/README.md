@@ -21,7 +21,6 @@ BackendDotNet
 │  ├─ Filters
 │  │  └─ PersonFilter.cs
 │  ├─ Mappers
-│  │  ├─ CSVPersonMap.cs
 │  │  └─ PersonMapper.cs
 │  ├─ Middlewares
 │  │  └─ ErrorHandlingMiddleware.cs
