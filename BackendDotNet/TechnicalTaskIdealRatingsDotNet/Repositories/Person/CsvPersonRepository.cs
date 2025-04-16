@@ -31,11 +31,9 @@ public class CsvPersonRepository : IPersonRepository
             using (var reader = new StreamReader(_csvFilePath))
             using (var csv = new CsvReader(reader, config))
             {
-                csv.Context.RegisterClassMap<PersonResponseMap>();
-
-                var records = csv.GetRecordsAsync<PersonDto>()
+                var records = await csv.GetRecordsAsync<PersonDto>()
                     .Where(r => ApplyFilter(r, filter))
-                    .ToBlockingEnumerable();
+                    .ToListAsync();
 
                 persons.AddRange(records);
             }
@@ -55,31 +53,31 @@ public class CsvPersonRepository : IPersonRepository
 
         return persons;
     }
-    
+
     private bool ApplyFilter(PersonDto person, PersonFilter? filter)
     {
         if (filter == null)
             return true;
-        
+
         if (!string.IsNullOrEmpty(person.Address))
         {
             var addressParts = person.Address.Split(',');
             person.Address = addressParts.FirstOrDefault()?.Trim() ?? string.Empty;
             person.Country = addressParts.Skip(1).FirstOrDefault()?.Trim() ?? string.Empty;
         }
-        
+
         if (!string.IsNullOrWhiteSpace(filter.Name))
         {
-            var name = filter.Name.ToLower(); 
+            var name = filter.Name.ToLower();
             var fullName = $"{person.FirstName} {person.LastName}".ToLower();
             if (!fullName.Contains(name))
                 return false;
         }
-        
+
         if (!string.IsNullOrWhiteSpace(filter.Country) && !person.Country.Contains(filter.Country, StringComparison.OrdinalIgnoreCase))
             return false;
 
         return true;
     }
-   
+
 }
