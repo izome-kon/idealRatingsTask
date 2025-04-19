@@ -1,5 +1,5 @@
 
-# 🌟 Ideal Ratings Task
+# 🌟 IdealRatings Task
 
 
 ## 📖 Table of Contents
