@@ -36,6 +36,15 @@ public class CsvPersonRepository : IPersonRepository
                     .ToListAsync();
 
                 persons.AddRange(records);
+                
+                //  if csv file is very large
+                // await foreach (var record in csv.GetRecordsAsync<PersonDto>())
+                // {
+                //     if (ApplyFilter(record, filter))
+                //     {
+                //         persons.Add(record);
+                //     }
+                // }
             }
         }
         catch (FileNotFoundException ex)
@@ -58,7 +67,7 @@ public class CsvPersonRepository : IPersonRepository
     {
         if (filter == null)
             return true;
-
+        // 
         if (!string.IsNullOrEmpty(person.Address))
         {
             var addressParts = person.Address.Split(',');

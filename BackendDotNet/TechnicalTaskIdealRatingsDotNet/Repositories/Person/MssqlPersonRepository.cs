@@ -22,6 +22,7 @@ public class MssqlPersonRepository: IPersonRepository
 
         if (filter != null)
         {
+            
             foreach (var filterProp in typeof(PersonFilter).GetProperties())
             {
                 var filterValue = filterProp.GetValue(filter) as string;

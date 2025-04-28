@@ -1,6 +1,6 @@
 FROM node:23
 
-RUN apt-get update && apt-get install -y netcat-openbsd
+RUN apt-get update && apt-get install -y
 # Create app directory
 WORKDIR /app
 
